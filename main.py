@@ -132,8 +132,6 @@ COBRANDED_PIECE_INFO = {
 }
 
 
-from decimal import Decimal
-
 def dict_to_pikepdf(obj):
     """Recursively convert a Python dict/list into pikepdf objects."""
     if isinstance(obj, dict):
@@ -148,7 +146,7 @@ def dict_to_pikepdf(obj):
     elif isinstance(obj, int):
         return obj
     elif isinstance(obj, float):
-        return Decimal(str(obj))
+        return pikepdf.Decimal(str(obj))
     elif isinstance(obj, str):
         if obj.startswith("/"):
             return pikepdf.Name(obj)
